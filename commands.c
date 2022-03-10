@@ -16,7 +16,7 @@ int	sa_sb(t_stack **head, char st)
 		else if (st == 'b')
 			write(1, "sb\n", 3);
 	}
-	return (0);
+	return (1);
 }
 
 int	pa_pb(t_stack **stack1, t_stack **stack2, char st)
@@ -38,7 +38,7 @@ int	pa_pb(t_stack **stack1, t_stack **stack2, char st)
 		write(1, "pa\n", 3);
 	else if (st == 'b')
 		write(1, "pb\n", 3);
-	return (0);
+	return (1);
 }
 
 int	ra_rb(t_stack **stack, char st)
@@ -61,7 +61,7 @@ int	ra_rb(t_stack **stack, char st)
 		write(1, "ra\n", 3);
 	else if (st == 'b')
 		write(1, "rb\n", 3);
-	return (0);
+	return (1);
 }
 
 int	rra_rrb(t_stack **stack, char st)
@@ -89,5 +89,5 @@ int	rra_rrb(t_stack **stack, char st)
 		write(1, "rra\n", 4);
 	else if (st == 'b')
 		write(1, "rrb\n", 4);
-	return (0);
+	return (1);
 }

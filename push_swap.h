@@ -34,14 +34,17 @@ int		pa_pb(t_stack **stack1, t_stack **stack2, char st);
 int		ra_rb(t_stack **head, char st);
 int		rra_rrb(t_stack **stack, char st);
 int		stack_length(t_stack **stack);
-int		ss(t_stack **a, t_stack **b);
-int		rr(t_stack **a, t_stack **b);
-int		rrr(t_stack **a, t_stack **b);
+int		ss(t_stack **a, t_stack **b, char st);
+int		rr(t_stack **a, t_stack **b, char st);
+int		rrr(t_stack **a, t_stack **b, char st);
 void	sort_three(t_alg *alg);
 void	sort_five(t_alg *alg, int n);
 void	start_sort(t_alg *alg, int len);
 void	free_alg(t_alg *alg);
 int		ft_atoi(const char *str);
 char	*ft_strdup(const char *s);
+char	*get_arg_line(int argc, char **argv);
+int		ft_is_same(char *s1, char *s2);
+int		is_stack_sorted(t_stack *stack);
 
 #endif

@@ -1,3 +1,5 @@
+#include "push_swap.h"
+
 int	check_for_int(const char *str)
 {
 	int				i;
@@ -35,5 +37,22 @@ int	is_sorted(int *arr, int len)
 	while (++i < len - 1)
 		if (arr[i] > arr[i + 1])
 			return (0);
+	return (1);
+}
+
+int	is_stack_sorted(t_stack *stack)
+{
+	t_stack	*tmp;
+
+	tmp = stack;
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+		{
+			stack = tmp;
+			return (0);
+		}
+		stack = stack->next;
+	}
 	return (1);
 }

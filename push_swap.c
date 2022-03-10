@@ -1,30 +1,6 @@
 #include "push_swap.h"
 
-char	*get_arg_line(int argc, char **argv)
-{
-	int		i;
-	char	*nums;
-	char	*tmp;
-
-	i = 3;
-	if (argc > 2)
-	{
-		nums = ft_strjoin_space(argv[1], argv[2]);
-		argc -= 3;
-		while (argc > 0)
-		{
-			tmp = nums;
-			nums = ft_strjoin_space(nums, argv[i]);
-			free(tmp);
-			i++;
-			argc--;
-		}
-	}	
-	else
-		return (ft_strdup(argv[1]));
-	return (nums);
-}
-
+/*
 void	print_arr(int *arr, int size)
 {
 	int	i;
@@ -60,7 +36,7 @@ void	print_stack(t_alg *alg)
 	}
 	alg->a = tmpa;
 	alg->b = tmpb;
-}
+} */
 
 int	main(int argc, char **argv)
 {
@@ -74,7 +50,7 @@ int	main(int argc, char **argv)
 	arg_str = get_arg_line(argc, argv);
 	if (!check_args(arg_str))
 	{
-		printf("Error\n");
+		write(1, "Error\n", 6);
 		free(arg_str);
 		return (0);
 	}

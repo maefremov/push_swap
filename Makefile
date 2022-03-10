@@ -1,4 +1,5 @@
 NAME=push_swap
+NAME2=checker
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror -MMD -I libft
 
@@ -14,17 +15,35 @@ SRC_FILES=butterfly.c			\
 		utils.c					\
 		validation.c			\
 
+SRC2_FILES=get_next_line.c		\
+		get_next_line_utils.c	\
+		commands.c				\
+		commands1.c				\
+		create_stack.c			\
+		init_stacks.c			\
+		num_utils.c				\
+		parsing.c				\
+		checker.c				\
+		utils.c					\
+		validation.c			\
+
+
 OBJ_DIR=objs
 OBJ=$(addprefix $(OBJ_DIR)/,$(SRC_FILES:.c=.o))
+OBJ2=$(addprefix $(OBJ_DIR)/,$(SRC2_FILES:.c=.o))
 
 DEP=$(addprefix $(OBJ_DIR)/,$(SRC_FILES:.c=.d))
-INC_FILES=push_swap.h
+DEP+=$(addprefix $(OBJ_DIR)/,$(SRC2_FILES:.c=.d))
+INC_FILES=push_swap.h get_next_line.h
 LIBFT=libft/libft.a
 
-all: liba $(NAME)
+all: liba $(NAME) $(NAME2)
 
 $(NAME): $(OBJ) $(LIBFT)
 	$(CC) $(OBJ) -L libft -lft -o $(NAME)
+
+$(NAME2): $(OBJ2) $(LIBFT)
+	$(CC) $(OBJ2) -L libft -lft -o $(NAME2)
 
 -include $(DEP)
 
@@ -44,6 +63,7 @@ clean:
 fclean: clean
 	@make -C libft fclean
 	rm -rf $(NAME)
+	rm -rf $(NAME2)
 
 re: fclean all
 
