@@ -33,17 +33,13 @@ OBJ=$(addprefix $(OBJ_DIR)/,$(SRC_FILES:.c=.o))
 OBJ2=$(addprefix $(OBJ_DIR)/,$(SRC2_FILES:.c=.o))
 
 DEP=$(addprefix $(OBJ_DIR)/,$(SRC_FILES:.c=.d))
-DEP+=$(addprefix $(OBJ_DIR)/,$(SRC2_FILES:.c=.d))
+DEP2=$(addprefix $(OBJ_DIR)/,$(SRC2_FILES:.c=.d))
 INC_FILES=push_swap.h get_next_line.h
 LIBFT=libft/libft.a
 
-all: liba $(NAME) $(NAME2)
-
+all: liba $(NAME)
 $(NAME): $(OBJ) $(LIBFT)
 	$(CC) $(OBJ) -L libft -lft -o $(NAME)
-
-$(NAME2): $(OBJ2) $(LIBFT)
-	$(CC) $(OBJ2) -L libft -lft -o $(NAME2)
 
 -include $(DEP)
 
@@ -53,7 +49,16 @@ $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-liba:
+bonus: liba $(NAME2)
+$(NAME2): $(OBJ2) $(LIBFT)
+	$(CC) $(OBJ2) -L libft -lft -o $(NAME2)
+
+-include $(DEP2)
+
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+liba: 
 	@make -C libft
 
 clean:
@@ -61,10 +66,10 @@ clean:
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@make -C libft fclean
+	#@make -C libft fclean
 	rm -rf $(NAME)
 	rm -rf $(NAME2)
 
 re: fclean all
 
-.PHONY : all clean fclean re libft
+.PHONY : all clean fclean re libft bonus

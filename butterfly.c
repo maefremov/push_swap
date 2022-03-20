@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   butterfly.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blino <blino@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/14 17:54:30 by blino             #+#    #+#             */
+/*   Updated: 2022/03/14 18:14:45 by blino            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	get_max(t_stack **stack)
@@ -66,12 +78,15 @@ static void	butterfly(t_alg *alg, int len)
 	butt_to_a(alg);
 }
 
-void	start_sort(t_alg *alg, int len)
+int	start_sort(t_alg *alg, int len)
 {
-	if (len <= 3)
+	if (len == 1)
+		return (0);
+	else if (len <= 3)
 		sort_three(alg);
 	else if (len <= 5)
 		sort_five(alg, 0);
 	else
 		butterfly(alg, len);
+	return (1);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blino <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/27 18:59:20 by blino             #+#    #+#             */
+/*   Updated: 2021/10/27 19:00:52 by blino            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static char	*ft_rev(char *c)
@@ -15,7 +27,7 @@ static char	*ft_rev(char *c)
 		c[len - i - 1] = temp;
 		i++;
 	}
-	return(c);
+	return (c);
 }
 
 static char	*ft_func(int n, char *c)
@@ -43,7 +55,7 @@ static char	*ft_func(int n, char *c)
 	return (ft_rev(c));
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		len;
 	int		nbr;
@@ -60,7 +72,8 @@ char *ft_itoa(int n)
 	}
 	if (n == 0)
 		len = 1;
-	if (!(c = malloc(sizeof(char) * (len + 1))))
-		return 0;
+	c = malloc(sizeof(char) * (len + 1));
+	if (!c)
+		return (NULL);
 	return (ft_func(n, c));
 }

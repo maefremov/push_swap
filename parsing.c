@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blino <blino@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/14 17:56:33 by blino             #+#    #+#             */
+/*   Updated: 2022/03/14 18:05:48 by blino            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	*atoi_arr(char **sarr, int len)
@@ -59,7 +71,7 @@ char	*get_arg_line(int argc, char **argv)
 			i++;
 			argc--;
 		}
-	}	
+	}
 	else
 		return (ft_strdup(argv[1]));
 	return (nums);

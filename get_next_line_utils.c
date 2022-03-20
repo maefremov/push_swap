@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blino <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: blino <blino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 17:34:45 by blino             #+#    #+#             */
-/*   Updated: 2022/01/12 17:34:48 by blino            ###   ########.fr       */
+/*   Created: 2022/03/14 17:55:32 by blino             #+#    #+#             */
+/*   Updated: 2022/03/14 17:55:33 by blino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_new_buff(char *buffer)
 	char	*str;
 
 	i = 0;
-    j = 0;
+	j = 0;
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
 	if (!buffer[i])

@@ -1,42 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blino <blino@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/14 17:56:40 by blino             #+#    #+#             */
+/*   Updated: 2022/03/14 18:49:03 by blino            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-/*
-void	print_arr(int *arr, int size)
+static int	err_ret(void)
 {
-	int	i;
-
-	i = 0;
-	printf("\n");
-	while (i < size)
-	{
-		printf("%d\n", arr[i]);
-		i++;
-	}
-	printf("\n");
+	write(1, "Error\n", 6);
+	return (0);
 }
-
-void	print_stack(t_alg *alg)
-{
-	t_stack	*tmpa;
-	t_stack	*tmpb;
-
-	tmpa = alg->a;
-	tmpb = alg->b;
-	printf("\na: ");
-	while (alg->a)
-	{
-		printf("%d ", alg->a->value);
-		alg->a = alg->a->next;
-	}
-	printf("\nb: ");
-	while (alg->b)
-	{
-		printf("%d ", alg->b->value);
-		alg->b = alg->b->next;
-	}
-	alg->a = tmpa;
-	alg->b = tmpb;
-} */
 
 int	main(int argc, char **argv)
 {
@@ -50,19 +30,18 @@ int	main(int argc, char **argv)
 	arg_str = get_arg_line(argc, argv);
 	if (!check_args(arg_str))
 	{
-		write(1, "Error\n", 6);
 		free(arg_str);
-		return (0);
+		return (err_ret());
 	}
 	size = get_arr(arg_str, &args);
 	free(arg_str);
-	if (size < 2)
-		return (0);
-	if (!is_sorted(args, size))
+	if (!is_sorted(args, size) || size < 2)
 	{		
 		alg = init_stacks(args, size);
 		start_sort(alg, size);
 		free_alg(alg);
 	}
+	else
+		free(args);
 	return (0);
 }

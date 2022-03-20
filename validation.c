@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validation.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blino <blino@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/14 17:57:04 by blino             #+#    #+#             */
+/*   Updated: 2022/03/14 18:43:13 by blino            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	check_doubles(char **line)
@@ -30,6 +42,7 @@ int	check_args(char *arg_line)
 {
 	char	**sarr;
 	int		i;
+	int		flag;
 
 	i = 0;
 	while (arg_line[i])
@@ -37,11 +50,13 @@ int	check_args(char *arg_line)
 		if (!(arg_line[i] == ' ' || arg_line[i] == '-'
 				|| (arg_line[i] >= '0' && arg_line[i] <= '9')))
 			return (0);
+		if (ft_isdigit(arg_line[i]))
+			flag = 1;
 		i++;
 	}
 	sarr = ft_split(arg_line, ' ');
 	i = -1;
-	if (!check_doubles(sarr))
+	if (flag != 1 || !check_doubles(sarr))
 		return (free_and_rtn(sarr, 0));
 	while (sarr[++i])
 		if (!check_for_int(sarr[i]))

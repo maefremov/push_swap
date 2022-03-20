@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blino <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: blino <blino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 17:34:37 by blino             #+#    #+#             */
-/*   Updated: 2022/01/12 17:34:39 by blino            ###   ########.fr       */
+/*   Created: 2022/03/14 17:55:56 by blino             #+#    #+#             */
+/*   Updated: 2022/03/14 17:55:57 by blino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*get_next_line(int fd);
 char	*ft_new_buff(char *buffer);
 char	*ft_get_line(char *buffer);
 char	*ft_strjoing(char *s1, char *s2);
-char	*ft_strchrg(char	*str, int	c);
+char	*ft_strchrg(char *str, int c);
 size_t	ft_strleng(char *s);
 
 #endif

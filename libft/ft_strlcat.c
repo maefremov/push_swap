@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blino <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/27 18:51:44 by blino             #+#    #+#             */
+/*   Updated: 2021/10/27 18:52:05 by blino            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t i;
-	size_t j;
-	size_t src_len;
-	size_t dst_len;
+	size_t	i;
+	size_t	j;
+	size_t	src_len;
+	size_t	dst_len;
 
 	j = 0;
 	dst_len = ft_strlen(dst);

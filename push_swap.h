@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blino <blino@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/14 17:56:47 by blino             #+#    #+#             */
+/*   Updated: 2022/03/14 18:14:54 by blino            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -39,7 +51,7 @@ int		rr(t_stack **a, t_stack **b, char st);
 int		rrr(t_stack **a, t_stack **b, char st);
 void	sort_three(t_alg *alg);
 void	sort_five(t_alg *alg, int n);
-void	start_sort(t_alg *alg, int len);
+int		start_sort(t_alg *alg, int len);
 void	free_alg(t_alg *alg);
 int		ft_atoi(const char *str);
 char	*ft_strdup(const char *s);

@@ -39,7 +39,7 @@ OBJS_DIR = objs/
 OBJS = $(SRCS:.c=.o)
 OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 
-CC = clang
+CC = cc
 
 CC_FLAGS = -Wall -Wextra -Werror
 

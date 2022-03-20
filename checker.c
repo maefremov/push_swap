@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blino <blino@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/14 17:54:39 by blino             #+#    #+#             */
+/*   Updated: 2022/03/14 18:56:35 by blino            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include "get_next_line.h"
 
@@ -8,7 +20,7 @@ static int	do_par(t_alg *alg, char *cmd)
 	else if (ft_is_same(cmd, "sb\n"))
 		return (sa_sb(&alg->b, 0));
 	else if (ft_is_same(cmd, "ss\n"))
-		return (ss(&alg->b, &alg->b, 0));
+		return (ss(&alg->a, &alg->b, 0));
 	else if (ft_is_same(cmd, "pa\n"))
 		return (pa_pb(&alg->b, &alg->a, 0));
 	else if (ft_is_same(cmd, "pb\n"))
@@ -25,36 +37,29 @@ static int	do_par(t_alg *alg, char *cmd)
 		return (rra_rrb(&alg->b, 0));
 	else if (ft_is_same(cmd, "rrr\n"))
 		return (rrr(&alg->a, &alg->b, 0));
-	else 
+	else
 		return (0);
 }
 
 static int	start_check(t_alg *alg)
 {
-	char *cmd;
+	char	*cmd;
 
 	cmd = get_next_line(0);
 	if (!cmd)
-	{
-		write(1, "Error\n", 6);
 		return (0);
-	}
 	while (cmd)
 	{
 		if (!do_par(alg, cmd))
 		{
 			write(1, "Error\n", 6);
-			//free(cmd);
+			free(cmd);
 			return (0);
 		}
 		free(cmd);
 		cmd = get_next_line(0);
 	}
 	free(cmd);
-	if (is_stack_sorted(alg->a) && !alg->b)
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
 	return (1);
 }
 
@@ -76,13 +81,12 @@ int	main(int argc, char **argv)
 	}
 	size = get_arr(arg_str, &args);
 	free(arg_str);
-	if (size < 2)
-		return (0);
-	if (!is_sorted(args, size))
-	{		
-		alg = init_stacks(args, size);
-		start_check(alg);
-		free_alg(alg);
-	}
+	alg = init_stacks(args, size);
+	start_check(alg);
+	if (is_stack_sorted(alg->a) && !alg->b)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+	free_alg(alg);
 	return (0);
 }
